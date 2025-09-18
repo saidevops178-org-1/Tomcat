@@ -46,6 +46,7 @@ Types of application servers
 
 
 IQ] why you are going for tomcat app server?
+
 ANS: Now a days most of the projects developed based on the micro service architecture.
   
     In java MS's developed with the help of springboot framework. For springboot default application server is tomcat.
@@ -62,7 +63,9 @@ ANS: Now a days most of the projects developed based on the micro service archit
 
 
 
-IQ] what is the diff between tomcat and jboss?
+IQ] what is the diff between tomcat and jboss/wildfly?
+
+
    tomcat mainly used for web applicaions, Jboss used for web/enterprise applications.
 
 
@@ -109,10 +112,10 @@ Tomcat directory structure
 
 1. bin
 
-  startup.sh  ---> Linux/mac
+  startup.sh  ---> Linux/mac  --->start the tomcat server
   startup.bat ---> windows
  
-  shutdown.sh
+  shutdown.sh       ---> stop the tomcat server
   shutdown.bat
 
   catalina.sh start/stop/restart
@@ -130,7 +133,7 @@ Tomcat directory structure
 
 4. logs
 
- NOTE: once we start the server below files will be created.
+ NOTE: once we start the tomcat server below files will be created.
 
 catalina.log
 hostmager.log
@@ -160,8 +163,8 @@ All temp files are stored here.
 
 
 
-Installation of tomcat
-======================
+Installation of tomcat starts from here
+=======================================
 
 prerequisites 
 -------------
@@ -194,11 +197,10 @@ step 5: yum install wget unzip tree -y
 
 step 6: cd /opt/
    
-      wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.91/bin/apache-tomcat-9.0.104.zip
-      wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.106/bin/apache-tomcat-9.0.106.zip
+      wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.109/bin/apache-tomcat-9.0.109.zip
 
      
-step 7: unzip apache-tomcat-9.0.104.zip
+step 7: unzip apache-tomcat-9.0.109.zip
 
  
 
@@ -206,7 +208,7 @@ step 7: unzip apache-tomcat-9.0.104.zip
 
 step 8: goto the bin directory.
      
-       cd /opt/apache-tomcat-9.0.104/bin
+       cd /opt/apache-tomcat-9.0.109/bin
 
 step 9: chmod u+x *.sh
 
@@ -249,8 +251,8 @@ IQ] How to check tomcat is running or not?
 IQ] I want to start/stop tomcat server from anywhere instead of bin dir?
 
 
-ln -s /opt/apache-tomcat-9.0.106/bin/startup.sh /usr/bin/startTomcat
-ln -s /opt/apache-tomcat-9.0.106/bin/shutdown.sh /usr/bin/stopTomcat
+ln -s /opt/apache-tomcat-9.0.109/bin/startup.sh /usr/bin/startTomcat
+ln -s /opt/apache-tomcat-9.0.109/bin/shutdown.sh /usr/bin/stopTomcat
 
 Now you can go and run in any directory.
 
@@ -288,7 +290,7 @@ click on server Status, Manager App, Host Manager ----> not able to access.
 --> we can place our application into "Manager App"
                                        ===========
 
-step 1: cd /opt/apache-tomcat-9.0.106/webapps
+step 1: cd /opt/apache-tomcat-9.0.109/webapps
 
 step 2: cd manager 
 
@@ -304,7 +306,7 @@ step 5: vi context.xml
      -->
 step 6: refresh the main page ----> It will ask the credentials.
 
-step 7: cd /opt/apache-tomcat-9.0.106/conf/ 
+step 7: cd /opt/apache-tomcat-9.0.109/conf/ 
 
 step 8: vi tomcat-users.xml ---> goto end of the file and add users.
 
@@ -315,7 +317,7 @@ step 8: vi tomcat-users.xml ---> goto end of the file and add users.
 
 if you want to login Host-manager do the same process?
                      ============
-step 1: cd /opt/apache-tomcat-9.0.106/webapps
+step 1: cd /opt/apache-tomcat-9.0.109/webapps
 
 step 2: cd host-manager 
 
@@ -334,7 +336,7 @@ step 8: refresh the main page ----> It will ask the credentials, give the creden
 
 step 9: go and check the logs directory logs are created or not
 
-       cd /opt/apache-tomcat-9.0.106/logs
+       cd /opt/apache-tomcat-9.0.109/logs
 
 
 Assignment 
